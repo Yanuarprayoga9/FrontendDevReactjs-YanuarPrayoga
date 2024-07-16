@@ -20,4 +20,3 @@ const createAPI = (useToken = true) => {
 };
 export const apiWithoutToken = createAPI(false);
 export const apiWithToken = createAPI(true);
-

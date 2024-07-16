@@ -1,6 +1,3 @@
-
 export const FilterCategory = () => {
-  return (
-    <div>FilterCategory</div>
-  )
-}
+  return <div>FilterCategory</div>;
+};

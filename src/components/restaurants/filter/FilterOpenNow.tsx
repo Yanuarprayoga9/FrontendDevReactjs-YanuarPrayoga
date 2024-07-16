@@ -1,5 +1,3 @@
 export const FilterOpenNow = () => {
-  return (
-    <div>FilterOpenNow</div>
-  )
-}
+  return <div>FilterOpenNow</div>;
+};

@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { Restaurant as RestaurantType } from "../../types";
-import { getRestaurants } from "../../api/services";
-import { Jumbotron } from "../../components/restaurants/Jumbotron";
-import { Filter } from "../../components/restaurants/filter/Filter";
-import Container from "../../components/Container";
-import { RestaurantCard } from "../../components/restaurants/RestaurantCard";
-import { RestaurantList } from "../../components/restaurants/RestaurantList";
+import { useEffect, useState } from 'react';
+import { Restaurant as RestaurantType } from '../../types';
+import { getRestaurants } from '../../api/services';
+import { Jumbotron } from '../../components/restaurants/Jumbotron';
+import { Filter } from '../../components/restaurants/filter/Filter';
+import Container from '../../components/Container';
+import { RestaurantList } from '../../components/restaurants/RestaurantList';
 
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState<RestaurantType[]>([]);
@@ -15,9 +14,9 @@ const Restaurants = () => {
         try {
             const fetchedRestaurants = await getRestaurants();
             setRestaurants(fetchedRestaurants);
-            console.log(fetchedRestaurants)
+            console.log(fetchedRestaurants);
         } catch (error) {
-            console.error("Error fetching restaurants:", error);
+            console.error('Error fetching restaurants:', error);
         } finally {
             setLoading(false);
         }
@@ -35,12 +34,10 @@ const Restaurants = () => {
             </Container>
             <Filter />
             <Container className="py-4">
-                <h1>#</h1>
-               <RestaurantList restaurants={restaurants} loading={loading}/>
-                
+                <h1 className="text-2xl">All Restaurants</h1>
+                <RestaurantList restaurants={restaurants} loading={loading} />
             </Container>
-
         </div>
     );
-}
+};
 export default Restaurants;

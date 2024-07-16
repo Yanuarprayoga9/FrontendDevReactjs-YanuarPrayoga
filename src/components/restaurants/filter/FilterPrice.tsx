@@ -1,5 +1,3 @@
 export const FilterPrice = () => {
-  return (
-    <div>FilterPrice</div>
-  )
-}
+  return <div>FilterPrice</div>;
+};
