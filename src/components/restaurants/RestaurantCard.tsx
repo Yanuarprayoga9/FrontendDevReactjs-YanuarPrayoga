@@ -15,7 +15,7 @@ export const RestaurantCard = (props: props) => {
   return (
     <div className="relative hover:shadow-md px-2  h-[28rem] w-full  sm:w-1/2 md:w-1/3 lg:w-1/4 my-12">
       <div className="w-full h-4/7">
-        <img src={image} className="object-fill w-full h-[270px]" />
+        <img src={image} alt="a" className="object-fill w-full h-[270px]" />
       </div>
       <div className="">
         <div className="">

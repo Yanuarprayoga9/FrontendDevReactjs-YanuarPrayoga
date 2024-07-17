@@ -1,5 +1,4 @@
 export function RatingReview({ rating }: { rating: number }) {
-    console.log({rating})
   return (
     <div>
       {[1, 2, 3, 4, 5].map((star, index) => {

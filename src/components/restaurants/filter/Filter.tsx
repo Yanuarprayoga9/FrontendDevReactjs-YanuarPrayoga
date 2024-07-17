@@ -5,22 +5,33 @@ import { FilterOpenNow } from './FilterOpenNow';
 import { FilterPrice } from './FilterPrice';
 
 type props = {
-    isOpen?:boolean | null;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean | null | undefined>>;
-    category?:string | null;
-    setCategory:React.Dispatch<React.SetStateAction<string | null >>;
-    priceRange?:string | null;
-    setPriceRange:React.Dispatch<React.SetStateAction<string | null | undefined>>;
-}
-export const Filter = (props:props) => {
+  isOpen?: boolean | null;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean | null | undefined>>;
+  category?: string | null;
+  setCategory: React.Dispatch<React.SetStateAction<string | null>>;
+  priceRange?: string | null;
+  setPriceRange: React.Dispatch<
+    React.SetStateAction<string | null | undefined>
+  >;
+};
+export const Filter = (props: props) => {
+  const {
+    isOpen,
+    setIsOpen,
+    category,
+    setCategory,
+    priceRange,
+    setPriceRange,
+  } = props;
+
   return (
-    <div className="w-full border border-y py-6">
-      <Container className="flex justify-between items-center">
-        <div className="flex justify-evenly gap-x-4">
+    <div className="w-full border border-y py-4">
+      <Container className="flex flex-col sm:flex-row space-y-4 justify-between items-center ">
+        <div className="flex text-xs sm:text-sm justify-evenly gap-x-4 items-center">
           <span className="text-slate-700">Filter By:</span>
-          <FilterOpenNow />
-          <FilterPrice />
-          <FilterCategory />
+          <FilterOpenNow isOpen={isOpen} setIsOpen={setIsOpen} />
+          <FilterPrice priceRange={priceRange} setPriceRange={setPriceRange} />
+          <FilterCategory category={category} setCategory={setCategory} />
         </div>
         <ClearAllBtn />
       </Container>

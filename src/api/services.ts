@@ -27,10 +27,13 @@ export const logout = () => {
   localStorage.removeItem('accessToken');
 };
 
-export const getRestaurants = async (show: number, category?: string | null ) => {
+export const getRestaurants = async (
+  show: number,
+  category?: string | null
+) => {
   try {
     const limit = 8 * show;
-    
+
     const params: { limit: number; category?: string } = { limit };
     if (category && category != undefined) {
       params.category = category;
@@ -43,7 +46,6 @@ export const getRestaurants = async (show: number, category?: string | null ) =>
     return [];
   }
 };
-
 
 export const getCategories = async () => {
   try {

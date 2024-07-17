@@ -7,10 +7,11 @@ type props = {
   loading: boolean;
 };
 export const RestaurantList = ({ restaurants, loading }: props) => {
+  console.log(restaurants.length);
   return (
     <div className="flex flex-wrap w-full justify-between    items-center ">
       {loading && <RestaurantSkeleton cards={8} />}
-      {restaurants ? (
+      {restaurants.length > 0 ? (
         restaurants.map((restaurant: Restaurant, index) => (
           <RestaurantCard
             name={restaurant.name}
@@ -23,7 +24,7 @@ export const RestaurantList = ({ restaurants, loading }: props) => {
           />
         ))
       ) : (
-        <h1>Item not found</h1>
+        <h1 className="py-4">Restaurant not found</h1>
       )}
     </div>
   );
