@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const FilterPrice = (props: Props) => {
-  const { setPriceRange } = props;
+  const { setPriceRange,priceRange } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPriceRange(event.target.value);
@@ -19,9 +19,10 @@ export const FilterPrice = (props: Props) => {
         className="w-full"
         onChange={handleChange}
         name="priceRange"
+        value={priceRange || ""}
         aria-label="Price Range"
       >
-        <option value="all">Price</option>
+        <option value="">Price</option>
         <option value="">All</option>
         <option value="$">$</option>
         <option value="$$">$$</option>

@@ -33,7 +33,7 @@ export const Filter = (props: props) => {
           <FilterPrice priceRange={priceRange} setPriceRange={setPriceRange} />
           <FilterCategory category={category} setCategory={setCategory} />
         </div>
-        <ClearAllBtn />
+        <ClearAllBtn setCategory={setCategory} setIsOpen={setIsOpen} setPriceRange={setPriceRange}/>
       </Container>
     </div>
   );

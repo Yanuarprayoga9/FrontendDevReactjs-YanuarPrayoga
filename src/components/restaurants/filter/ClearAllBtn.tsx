@@ -1,7 +1,17 @@
 import { Button } from '@headlessui/react';
-
-export const ClearAllBtn = () => {
+type props = {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean | null | undefined>>;
+  setCategory: React.Dispatch<React.SetStateAction<string | null>>;
+  setPriceRange: React.Dispatch<
+    React.SetStateAction<string | null | undefined>
+  >;
+};
+export const ClearAllBtn = (props:props) => {
+  const {setCategory,setIsOpen,setPriceRange} = props;
   const handleClick = () => {
+    setIsOpen(false);
+    setCategory("");
+    setPriceRange("");
     window.history.pushState(
       {},
       '',

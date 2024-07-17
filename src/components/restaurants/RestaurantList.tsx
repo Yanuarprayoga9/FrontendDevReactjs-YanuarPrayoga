@@ -9,7 +9,7 @@ type props = {
 export const RestaurantList = ({ restaurants, loading }: props) => {
   console.log(restaurants.length);
   return (
-    <div className="flex flex-wrap w-full justify-between    items-center ">
+    <div className="flex flex-wrap w-full justify-evenly   ">
       {loading && <RestaurantSkeleton cards={8} />}
       {restaurants.length > 0 ? (
         restaurants.map((restaurant: Restaurant, index) => (
