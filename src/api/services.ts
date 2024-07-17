@@ -27,23 +27,23 @@ export const logout = () => {
   localStorage.removeItem('accessToken');
 };
 
-export const getRestaurants = async (show = false) => {
+export const getRestaurants = async (show: number, category?: string | null ) => {
   try {
-    let limit = 8;
-    if (show) {
-      limit = 100;
+    const limit = 8 * show;
+    
+    const params: { limit: number; category?: string } = { limit };
+    if (category && category != undefined) {
+      params.category = category;
     }
-    const res = await apiWithToken.get(`/restaurants`, {
-      params: {
-        limit,
-      },
-    });
+
+    const res = await apiWithToken.get(`/restaurants`, { params });
     return res.data.data;
   } catch (error) {
     console.error('Failed to fetch restaurants:', error);
     return [];
   }
 };
+
 
 export const getCategories = async () => {
   try {
