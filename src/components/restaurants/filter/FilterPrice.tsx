@@ -1,3 +1,5 @@
+import { Select } from "@headlessui/react";
+
 type Props = {
   priceRange?: string | null;
   setPriceRange: React.Dispatch<
@@ -15,8 +17,8 @@ export const FilterPrice = (props: Props) => {
 
   return (
     <div className="w-20 py-2 border-b">
-      <select
-        className="w-full"
+      <Select
+        className="w-full bg-white"
         onChange={handleChange}
         name="priceRange"
         value={priceRange || ""}
@@ -27,7 +29,7 @@ export const FilterPrice = (props: Props) => {
         <option value="$">$</option>
         <option value="$$">$$</option>
         <option value="$$$">$$$</option>
-      </select>
+      </Select>
     </div>
   );
 };

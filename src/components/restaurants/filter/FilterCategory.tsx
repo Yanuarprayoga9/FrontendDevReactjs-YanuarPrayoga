@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCategories } from '../../../api/services';
+import { Select } from '@headlessui/react';
 type props = {
   category?: string | null;
   setCategory: React.Dispatch<React.SetStateAction<string | null>>;
@@ -22,8 +23,8 @@ export const FilterCategory = (props: props) => {
 
   return (
     <div className="w-22 py-2 border-b">
-      <select
-        className="w-full"
+      <Select
+        className="w-full bg-white"
         onChange={handleChange}
         value={category || ''}
         name="status"
@@ -36,7 +37,7 @@ export const FilterCategory = (props: props) => {
               {category}
             </option>
           ))}
-      </select>
+      </Select>
     </div>
   );
 };
