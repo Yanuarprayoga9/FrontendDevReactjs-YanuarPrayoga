@@ -15,7 +15,7 @@ export const ClearAllBtn = (props:props) => {
     window.history.pushState(
       {},
       '',
-      `?loadMore=1&isOpen=${null}&category=${null}&priceRange=${null}
+      `?isOpen=${null}&category=${null}&priceRange=${null}
       `
     );
   };

@@ -26,7 +26,6 @@ export const applyFilters = (
       (restaurant) => restaurant.isOpen === isOpen
     );
   }
-  // Filter berdasarkan priceRange
   if (priceRange !== null && priceRange !== undefined && priceRange !== '') {
     filteredRestaurants = filteredRestaurants.filter(
       (restaurant) => restaurant.priceRange === priceRange

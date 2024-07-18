@@ -1,19 +1,31 @@
 import { useEffect, useState } from 'react';
 import { getCategories } from '../../../api/services';
 import { Select } from '@headlessui/react';
-type props = {
+
+type Props = {
   category?: string | null;
   setCategory: React.Dispatch<React.SetStateAction<string | null>>;
 };
-export const FilterCategory = (props: props) => {
-  const { category, setCategory } = props;
-  const [categories, setCategories] = useState<string[]>([]);
 
+export const FilterCategory = ({ category, setCategory }: Props) => {
+  const [categories, setCategories] = useState<string[]>([]);
+  
   useEffect(() => {
     const fetchCategories = async () => {
-      const categories = await getCategories();
-      setCategories(categories);
+      try {
+        const cachedCategories = localStorage.getItem('categories');
+        if (cachedCategories) {
+          setCategories(JSON.parse(cachedCategories));
+        } else {
+          const categories = await getCategories();
+          setCategories(categories);
+          localStorage.setItem('categories', JSON.stringify(categories));
+        }
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      }
     };
+
     fetchCategories();
   }, []);
 
@@ -23,20 +35,21 @@ export const FilterCategory = (props: props) => {
 
   return (
     <div className="w-22 py-2 border-b">
+      <label htmlFor="category-select" className="sr-only">Select Category</label>
       <Select
+        id="category-select"
         className="w-full bg-white"
         onChange={handleChange}
         value={category || ''}
-        name="status"
+        name="category"
       >
         <option value="">Category</option>
         <option value="">All</option>
-        {categories &&
-          categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
       </Select>
     </div>
   );

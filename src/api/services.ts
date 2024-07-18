@@ -2,7 +2,7 @@ import { apiWithToken, apiWithoutToken } from '.';
 
 export function getAccessToken() {
   return (
-    localStorage.getItem('accessToken') ||
+    // localStorage.getItem('accessToken') ||
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzIxMTEwMTY5fQ.4gUICvHm3L5ZffkEs5pdG-OBwVitwsvOsgCrN3OO-Fw'
   );
 }

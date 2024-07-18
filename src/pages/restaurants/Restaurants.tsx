@@ -1,5 +1,5 @@
 import Container from '../../components/Container';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { Restaurant as RestaurantType } from '../../types';
 import { getRestaurants } from '../../api/services';
 import { Jumbotron } from '../../components/restaurants/Jumbotron';
@@ -13,9 +13,7 @@ import {
 } from '../../utils/utils';
 
 const Restaurants = () => {
-    const [filteredRestaurants, setFilteredRestaurants] = useState<
-        RestaurantType[]
-    >([]);
+    const [filteredRestaurants, setFilteredRestaurants] = useState<RestaurantType[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [loadMore, setLoadMore] = useState<number>(1);
 
@@ -32,39 +30,37 @@ const Restaurants = () => {
     );
     // FILTER STATE END
 
+    const fetchRestaurants = useCallback(async () => {
+        setLoading(true);
+        try {
+            const fetchedRestaurants = await getRestaurants(loadMore, category);
+            setFilteredRestaurants(
+                applyFilters(fetchedRestaurants, isOpen, priceRange)
+            );
+        } catch (error) {
+            console.error('Error fetching restaurants:', error);
+        } finally {
+            setLoading(false);
+        }
+    }, [loadMore, category, isOpen, priceRange]);
+
     useEffect(() => {
-        const fetchRestaurants = async () => {
-            setLoading(true);
-            try {
-                const fetchedRestaurants = await getRestaurants(loadMore, category);
-
-                setFilteredRestaurants(
-                    applyFilters(fetchedRestaurants, isOpen, priceRange)
-                );
-            } catch (error) {
-                console.error('Error fetching restaurants:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchRestaurants();
-
         window.history.pushState(
             {},
             '',
-            `?loadMore=${loadMore}&isOpen=${isOpen}&category=${category}&priceRange=${priceRange}
-            `
+            `?&isOpen=${isOpen}&category=${category}&priceRange=${priceRange}`
         );
-    }, [loadMore, isOpen, category, priceRange]);
-    console.log(priceRange);
+    }, [fetchRestaurants, loadMore, isOpen, category, priceRange]);
+
+    const filteredRestaurantsMemo = useMemo(() => filteredRestaurants, [filteredRestaurants]);
 
     return (
         <div className="h-screen w-full pb-52">
             <Container className="py-6">
                 <Jumbotron
                     title="Restaurant"
-                    desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, in, eligendi totam, maxime labore voluptates tempora sint libero repellat temporibus fugiat a sed corporis iure ea porro impedit inventore perferendis."
+                    desc="Discover the best restaurants in town. Find your favorite cuisine and enjoy a delightful meal."
                 />
             </Container>
             <Filter
@@ -76,8 +72,8 @@ const Restaurants = () => {
                 setPriceRange={setPriceRange}
             />
             <Container className="py-4">
-                <h1 className="text-2xl">All Restaurants</h1>
-                <RestaurantList restaurants={filteredRestaurants} loading={loading} />
+                <h1 className="text-2xl" aria-label="All Restaurants">All Restaurants</h1>
+                <RestaurantList restaurants={filteredRestaurantsMemo} loading={loading} />
             </Container>
             <Container className="py-4 flex justify-center">
                 <LoadMore loadMore={loadMore} setLoadMore={setLoadMore} />
@@ -85,4 +81,5 @@ const Restaurants = () => {
         </div>
     );
 };
+
 export default Restaurants;
