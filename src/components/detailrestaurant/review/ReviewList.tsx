@@ -13,7 +13,7 @@ export const ReviewList: React.FC<ReviewListProps> = ({ reviews, loading }) => {
   }
 
   return (
-    <div className="w-full sm:w-3/4">
+    <div className="w-full sm:w-3/4 space-y-2">
       {reviews.length === 0 ? (
         <div>No reviews available</div>
       ) : (
