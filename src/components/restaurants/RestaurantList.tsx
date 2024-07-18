@@ -17,13 +17,14 @@ export const RestaurantList = ({ restaurants, loading }: props) => {
         restaurants.length > 0 ? (
           restaurants.map((restaurant: Restaurant) => (
             <MemoizedRestaurantCard
+              id={restaurant.id}
               name={restaurant.name}
               category={restaurant.category}
               image={restaurant.image}
               isOpen={restaurant.isOpen}
               priceRange={restaurant.priceRange}
               rating={restaurant.rating}
-              key={restaurant.id} 
+              key={restaurant.id}
             />
           ))
         ) : (

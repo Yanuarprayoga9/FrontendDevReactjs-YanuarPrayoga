@@ -32,16 +32,12 @@ const Restaurants = () => {
 
     const fetchRestaurants = useCallback(async () => {
         setLoading(true);
-        try {
-            const fetchedRestaurants = await getRestaurants(loadMore, category);
-            setFilteredRestaurants(
-                applyFilters(fetchedRestaurants, isOpen, priceRange)
-            );
-        } catch (error) {
-            console.error('Error fetching restaurants:', error);
-        } finally {
-            setLoading(false);
-        }
+        const fetchedRestaurants = await getRestaurants(loadMore, category);
+        setFilteredRestaurants(
+            applyFilters(fetchedRestaurants, isOpen, priceRange)
+        );
+        setLoading(false);
+
     }, [loadMore, category, isOpen, priceRange]);
 
     useEffect(() => {

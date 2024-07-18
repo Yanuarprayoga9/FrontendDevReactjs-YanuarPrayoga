@@ -47,6 +47,16 @@ export const getRestaurants = async (
   }
 };
 
+export const getRestaurant = async (id: string) => {
+  try {
+    
+    const res = await apiWithToken.get(`/restaurants/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error('Failed to fetch restaurant:', error);
+    return null;
+  }
+};
 export const getCategories = async () => {
   try {
     const res = await apiWithToken.get(`/category`);
