@@ -1,16 +1,18 @@
 type RatingReviewProps = {
   rating: number;
   className: string;
-  variant?: 'gold' | 'blue'; // Add the variant prop
+  variant?: 'gold' | 'blue';
 };
 
-export function RatingReview({ rating, className, variant = 'blue' }: RatingReviewProps) {
-  // Define styles for different variants
+export function RatingReview({
+  rating,
+  className,
+  variant = 'blue',
+}: RatingReviewProps) {
   const variantClasses = {
-    gold: 'text-yellow-500', // Define the styles for gold variant
-    blue: 'text-main-blue', // Define the styles for blue variant
+    gold: 'text-yellow-500',
+    blue: 'text-main-blue',
   };
-
   return (
     <div className={className}>
       {[1, 2, 3, 4, 5].map((star, index) => {

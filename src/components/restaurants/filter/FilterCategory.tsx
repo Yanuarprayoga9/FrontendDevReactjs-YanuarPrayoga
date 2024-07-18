@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { getCategories } from '../../../api/services';
 import { Select } from '@headlessui/react';
 
-type Props = {
+type props = {
   category?: string | null;
   setCategory: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-export const FilterCategory = ({ category, setCategory }: Props) => {
+export const FilterCategory: React.FC<props> = ({ category, setCategory }) => {
   const [categories, setCategories] = useState<string[]>([]);
-  
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -35,7 +35,9 @@ export const FilterCategory = ({ category, setCategory }: Props) => {
 
   return (
     <div className="w-22 py-2 border-b">
-      <label htmlFor="category-select" className="sr-only">Select Category</label>
+      <label htmlFor="category-select" className="sr-only">
+        Select Category
+      </label>
       <Select
         id="category-select"
         className="w-full bg-white"

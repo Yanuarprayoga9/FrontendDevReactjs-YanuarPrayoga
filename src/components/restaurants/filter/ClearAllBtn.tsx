@@ -6,12 +6,12 @@ type props = {
     React.SetStateAction<string | null | undefined>
   >;
 };
-export const ClearAllBtn = (props:props) => {
-  const {setCategory,setIsOpen,setPriceRange} = props;
+export const ClearAllBtn: React.FC<props> = (props) => {
+  const { setCategory, setIsOpen, setPriceRange } = props;
   const handleClick = () => {
     setIsOpen(false);
-    setCategory("");
-    setPriceRange("");
+    setCategory('');
+    setPriceRange('');
     window.history.pushState(
       {},
       '',

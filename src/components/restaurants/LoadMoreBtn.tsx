@@ -4,7 +4,7 @@ type props = {
   loadMore: number;
   setLoadMore: React.Dispatch<React.SetStateAction<number>>;
 };
-export const LoadMore = (props: props) => {
+export const LoadMore: React.FC<props> = (props) => {
   const { loadMore, setLoadMore } = props;
   const handleLoadMore = () => {
     setLoadMore(loadMore + 1);

@@ -1,11 +1,11 @@
 import { Checkbox } from '@headlessui/react';
 
-type Props = {
+type props = {
   isOpen?: boolean | null;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean | null | undefined>>;
 };
 
-export const FilterOpenNow = (props: Props) => {
+export const FilterOpenNow: React.FC<props> = (props) => {
   const { isOpen, setIsOpen } = props;
   const handleChange = () => {
     setIsOpen(!isOpen);

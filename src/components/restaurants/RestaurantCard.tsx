@@ -23,16 +23,13 @@ export const RestaurantCard: React.FC<Props> = ({
   priceRange,
   category,
 }) => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/restaurants/${id}`)
-  }
+    navigate(`/restaurants/${id}`);
+  };
 
   return (
-    <article
-
-      className="relative hover:shadow-md px-2 h-[28rem] w-full sm:w-1/2 md:w-1/3 lg:w-1/4 my-12">
+    <article className="relative hover:shadow-md px-2 h-[28rem] w-full sm:w-1/2 md:w-1/3 lg:w-1/4 my-12">
       <figure className="w-full h-4/7">
         <img
           src={image}
@@ -45,7 +42,7 @@ export const RestaurantCard: React.FC<Props> = ({
         <header>
           <h2 className="text-2xl line-clamp-2 my-1">{name}</h2>
           <div className="flex">
-            <RatingReview className='' variant='blue' rating={rating} />
+            <RatingReview className="" variant="blue" rating={rating} />
           </div>
         </header>
         <div className="flex text-sm justify-between items-center my-2">
@@ -67,11 +64,13 @@ export const RestaurantCard: React.FC<Props> = ({
         </div>
       </div>
       <div className="w-full absolute bottom-0 left-0 px-2">
-        <Button onClick={handleClick} className="h-12 hover:opacity-90 bg-main-blue w-full max-w-full text-white">
+        <Button
+          onClick={handleClick}
+          className="h-12 hover:opacity-90 bg-main-blue w-full max-w-full text-white"
+        >
           LEARN MORE
         </Button>
       </div>
     </article>
   );
 };
-

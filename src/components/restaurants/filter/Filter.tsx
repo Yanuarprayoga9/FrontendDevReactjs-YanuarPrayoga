@@ -35,7 +35,11 @@ export const Filter: React.FC<Props> = React.memo((props) => {
           <FilterPrice priceRange={priceRange} setPriceRange={setPriceRange} />
           <FilterCategory category={category} setCategory={setCategory} />
         </div>
-        <ClearAllBtn setCategory={setCategory} setIsOpen={setIsOpen} setPriceRange={setPriceRange} />
+        <ClearAllBtn
+          setCategory={setCategory}
+          setIsOpen={setIsOpen}
+          setPriceRange={setPriceRange}
+        />
       </Container>
     </div>
   );

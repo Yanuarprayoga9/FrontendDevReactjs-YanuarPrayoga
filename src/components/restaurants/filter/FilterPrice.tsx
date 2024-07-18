@@ -1,14 +1,14 @@
-import { Select } from "@headlessui/react";
-import { useCallback } from "react";
+import { Select } from '@headlessui/react';
+import { useCallback } from 'react';
 
-type Props = {
+type props = {
   priceRange?: string | null;
   setPriceRange: React.Dispatch<
     React.SetStateAction<string | null | undefined>
   >;
 };
 
-export const FilterPrice = ({ priceRange, setPriceRange }: Props) => {
+export const FilterPrice: React.FC<props> = ({ priceRange, setPriceRange }) => {
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLSelectElement>) => {
       setPriceRange(event.target.value);
@@ -27,7 +27,7 @@ export const FilterPrice = ({ priceRange, setPriceRange }: Props) => {
         className="w-full bg-white"
         onChange={handleChange}
         name="priceRange"
-        value={priceRange || ""}
+        value={priceRange || ''}
         aria-label="Price Range"
       >
         <option value="">Price</option>
