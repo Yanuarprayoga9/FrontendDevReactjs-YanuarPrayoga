@@ -24,6 +24,7 @@ const DetailRestaurant = () => {
     }, [id]);
 
     if (!id) {
+        loading
         return <h1>error</h1>
     }
     return (
