@@ -45,7 +45,7 @@ export const RestaurantCard: React.FC<Props> = ({
         <header>
           <h2 className="text-2xl line-clamp-2 my-1">{name}</h2>
           <div className="flex">
-            <RatingReview rating={rating} />
+            <RatingReview className='' variant='blue' rating={rating} />
           </div>
         </header>
         <div className="flex text-sm justify-between items-center my-2">
