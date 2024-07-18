@@ -1,4 +1,4 @@
-import { apiWithToken, apiWithoutToken } from '.';
+import { apiWithToken } from '.';
 
 export function getAccessToken() {
   return (
@@ -11,21 +11,21 @@ export function putAccessToken(accessToken: string) {
   return localStorage.setItem('accessToken', accessToken);
 }
 
-export const login = async (username: string, password: string) => {
-  try {
-    const res = await apiWithoutToken.post(`/login`, { username, password });
-    const { accessToken } = res.data;
-    putAccessToken(accessToken);
-    return true;
-  } catch (error) {
-    console.error('Login failed:', error);
-    return false;
-  }
-};
+// export const login = async (username: string, password: string) => {
+//   try {
+//     const res = await apiWithoutToken.post(`/login`, { username, password });
+//     const { accessToken } = res.data;
+//     putAccessToken(accessToken);
+//     return true;
+//   } catch (error) {
+//     console.error('Login failed:', error);
+//     return false;
+//   }
+// };
 
-export const logout = () => {
-  localStorage.removeItem('accessToken');
-};
+// export const logout = () => {
+//   localStorage.removeItem('accessToken');
+// };
 
 export const getRestaurants = async (
   show: number,

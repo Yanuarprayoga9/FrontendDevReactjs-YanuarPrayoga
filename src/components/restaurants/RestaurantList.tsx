@@ -12,7 +12,7 @@ export const RestaurantList: React.FC<props> = ({ restaurants, loading }) => {
   return (
     <div className="flex flex-wrap w-full justify-evenly">
       {loading ? (
-        <RestaurantSkeleton cards={4} />
+        <RestaurantSkeleton cards={8} />
       ) : restaurants.length > 0 ? (
         restaurants.map((restaurant: Restaurant) => (
           <MemoizedRestaurantCard
@@ -27,7 +27,7 @@ export const RestaurantList: React.FC<props> = ({ restaurants, loading }) => {
           />
         ))
       ) : (
-        <h1 className="py-4">Restaurant not found</h1>
+        <h1 className="py-4">Restaurant not avaliable</h1>
       )}
     </div>
   );
