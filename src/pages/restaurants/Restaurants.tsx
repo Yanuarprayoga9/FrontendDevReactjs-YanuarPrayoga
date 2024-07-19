@@ -34,7 +34,19 @@ const Restaurants = () => {
 
   const fetchRestaurants = useCallback(async () => {
     setLoading(true);
+
+    /**
+     * Filter kategory di sisi server. props: (loadmore,category)
+     *
+     * @return  all restaurants
+     */
     const fetchedRestaurants = await getRestaurants(loadMore, category);
+
+    /**
+     * Filter open now dan price range di sisi client. props: (all restaurant,isOpen,priceRange)
+     *
+     * @return  filtered restaurants
+     */
     setFilteredRestaurants(
       applyFilters(fetchedRestaurants, isOpen, priceRange)
     );
@@ -80,9 +92,13 @@ const Restaurants = () => {
           loading={loading}
         />
       </Container>
-          <Container className="py-4 flex justify-center">
-            <LoadMore loadMore={loadMore} enable={filteredRestaurants.length >= 8} setLoadMore={setLoadMore} />
-          </Container>
+      <Container className="py-4 flex justify-center">
+        <LoadMore
+          loadMore={loadMore}
+          enable={filteredRestaurants.length >= 8}
+          setLoadMore={setLoadMore}
+        />
+      </Container>
     </div>
   );
 };
