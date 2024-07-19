@@ -40,8 +40,9 @@ To get started with this project, follow these steps:
 5. Start the development server:  
 ```bash
    npm run dev
-   Runs the app in development mode using Vite. Open http://localhost:5173/ to view it in the browser.
 ```
+   Runs the app in development mode using Vite. Open http://localhost:5173/ to view it in the browser.
+   
 ### Project Details
 
 - **Dev Tool**: Vite
