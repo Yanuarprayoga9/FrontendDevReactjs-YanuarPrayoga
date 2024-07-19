@@ -17,7 +17,6 @@ export function toUpperCase(str: string) {
 export const getUrlParam = (param: string) => {
   const urlParams = new URLSearchParams(window.location.search);
   const value = urlParams.get(param);
-  // here
   return value == 'null' || null ? null : value;
 };
 
