@@ -11,7 +11,8 @@ export function RatingReview({
   className,
   variant = 'blue',
 }: RatingReviewProps) {
-  const starRatedColor = variant === 'gold' ? 'rgb(255, 215, 0)' : 'rgb(36, 7, 80)';
+  const starRatedColor =
+    variant === 'gold' ? 'rgb(255, 215, 0)' : 'rgb(36, 7, 80)';
 
   return (
     <div className={className}>
@@ -19,9 +20,9 @@ export function RatingReview({
         rating={rating}
         starRatedColor={starRatedColor}
         numberOfStars={5}
-        name='rating'
-        starDimension='18px'
-        starSpacing='1px'
+        name="rating"
+        starDimension="18px"
+        starSpacing="1px"
       />
     </div>
   );

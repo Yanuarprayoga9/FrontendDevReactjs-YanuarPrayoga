@@ -11,9 +11,7 @@ const DetailRestaurants = React.lazy(
 function App() {
   return (
     <BrowserRouter>
-      <Suspense
-        fallback={<Loader/>}
-      >
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/restaurants" element={<Restaurants />} />
