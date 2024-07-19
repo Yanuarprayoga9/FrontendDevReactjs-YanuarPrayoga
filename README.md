@@ -4,6 +4,15 @@
 
 This project is a React application built to Sekawan Media Internship Test Case as Front End Developer.
 
+### Repository Link
+
+https://github.com/Yanuarprayoga9/FrontendDevReactjs-YanuarPrayoga.git
+
+### Deployed Link
+
+https://frontend-dev-reactjs-yanuar-prayoga-sekawan-media.vercel.app/
+
+
 ### Running Locally
 
 To get started with this project, follow these steps:
@@ -51,18 +60,6 @@ To get started with this project, follow these steps:
 - **Package Manager**: npm
 - **CSS Framework**: Tailwind CSS
 - **API**: https://github.com/Yanuarprayoga9/restaurant-api-sekawan-media || https://restaurant-api-sekawan-media-yanuar.vercel.app/
-
-
-
-
-
-### Repository Link
-
-https://github.com/Yanuarprayoga9/FrontendDevReactjs-YanuarPrayoga.git
-
-### Deployed Link
-
-https://frontend-dev-reactjs-yanuar-prayoga-sekawan-media.vercel.app/
 
 
 ## Available Scripts
