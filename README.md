@@ -4,7 +4,7 @@
 
 This project is a React application built to Sekawan Media Internship Test Case as Front End Developer.
 
-### How to Start
+### Running Locally
 
 To get started with this project, follow these steps:
 
@@ -19,19 +19,29 @@ To get started with this project, follow these steps:
    ```bash
    cd FrontendDevReactjs-YanuarPrayoga
    ```
+3. Open Vs code :
 
-3. Install the necessary dependencies:
+   ```bash
+   code .
+   ```
+
+4. Install the necessary dependencies:
 
    ```bash
    npm install
    ```
 
-4. Start the development server:
+5. Start the development server:
 
    ```bash
    npm run dev
    ```
 
+5. Start the development server:  
+```bash
+   npm run dev
+   Runs the app in development mode using Vite. Open http://localhost:5173/ to view it in the browser.
+```
 ### Project Details
 
 - **Dev Tool**: Vite
@@ -53,3 +63,34 @@ https://github.com/Yanuarprayoga9/FrontendDevReactjs-YanuarPrayoga.git
 
 https://frontend-dev-reactjs-yanuar-prayoga-sekawan-media.vercel.app/
 
+
+## Available Scripts
+In the project directory, you can run the following commands:
+dev
+```bash
+npm run dev
+ Runs the app in development mode using Vite. Open http://localhost:5173/ to view it in the browser.
+```
+build
+```bash
+Copy code
+npm run build
+ Builds the app for production. It runs the TypeScript compiler and then builds the project using Vite. The output will be in the dist folder.
+```
+lint
+```bash
+npm run lint
+ Lints the project using ESLint, checking all files with .ts and .tsx extensions. The script reports unused disable directives and ensures there are no warnings.
+```
+preview
+```bash
+npm run preview
+Previews the production build of the app locally using Vite. Useful for testing the build before deploying.
+```
+
+format
+``` bash
+Copy code
+npm run format
+Formats the code in the src directory using Prettier.
+```
