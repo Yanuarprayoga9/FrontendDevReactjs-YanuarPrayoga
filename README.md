@@ -42,7 +42,7 @@ To get started with this project, follow these steps:
    npm run dev
 ```
    Runs the app in development mode using Vite. Open http://localhost:5173/ to view it in the browser.
-   
+
 ### Project Details
 
 - **Dev Tool**: Vite
@@ -75,7 +75,6 @@ Runs the app in development mode using Vite. Open http://localhost:5173/ to view
 
 ### build
 ```bash
-Copy code
 npm run build
 ```
  Builds the app for production. It runs the TypeScript compiler and then builds the project using Vite. The output will be in the dist folder.
@@ -94,7 +93,6 @@ Previews the production build of the app locally using Vite. Useful for testing 
 
 ### format
 ``` bash
-Copy code
 npm run format
 ```
 Formats the code in the src directory using Prettier.
