@@ -42,7 +42,7 @@ const DetailRestaurant = () => {
     <div className="w-full py-8 min-h-screen">
       <Container className="relative flex items-center justify-center max-w-[500px] min-w-full">
         <img
-          src="https://plus.unsplash.com/premium_photo-1661953124283-76d0a8436b87?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D"
+          src={restaurant.image}
           alt={`Image of ${restaurant.name}`}
           className="-z-10 w-full rounded-3xl mx-auto object-cover h-[400px] md:h-[500px] lg:h-[600px]"
         />
