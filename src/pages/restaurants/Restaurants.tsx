@@ -80,9 +80,9 @@ const Restaurants = () => {
           loading={loading}
         />
       </Container>
-      <Container className="py-4 flex justify-center">
-        <LoadMore loadMore={loadMore} setLoadMore={setLoadMore} />
-      </Container>
+          <Container className="py-4 flex justify-center">
+            <LoadMore loadMore={loadMore} enable={filteredRestaurants.length >= 8} setLoadMore={setLoadMore} />
+          </Container>
     </div>
   );
 };
