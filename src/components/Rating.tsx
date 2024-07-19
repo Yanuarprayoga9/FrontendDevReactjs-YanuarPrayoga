@@ -1,3 +1,5 @@
+import StarRatings from 'react-star-ratings';
+
 type RatingReviewProps = {
   rating: number;
   className: string;
@@ -9,22 +11,18 @@ export function RatingReview({
   className,
   variant = 'blue',
 }: RatingReviewProps) {
-  const variantClasses = {
-    gold: 'text-yellow-500',
-    blue: 'text-main-blue',
-  };
+  const starRatedColor = variant === 'gold' ? 'rgb(255, 215, 0)' : 'rgb(36, 7, 80)';
+
   return (
     <div className={className}>
-      {[1, 2, 3, 4, 5].map((star, index) => {
-        return (
-          <span
-            key={index}
-            className={`start font-bold text-2xl cursor-pointer ${rating >= star ? variantClasses[variant] : 'text-white'}`}
-          >
-            ★
-          </span>
-        );
-      })}
+      <StarRatings
+        rating={rating}
+        starRatedColor={starRatedColor}
+        numberOfStars={5}
+        name='rating'
+        starDimension='18px'
+        starSpacing='1px'
+      />
     </div>
   );
 }
